@@ -13,7 +13,7 @@ class CreateBooksAuthorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('books_authors', function (Blueprint $table) {
+        Schema::create('authors_books', function (Blueprint $table) {
             $table->bigInteger('book_id')->unsigned()->index();
             $table->foreign('book_id')->references('id')->on('books')->onDelete('cascade');
             $table->bigInteger('author_id')->unsigned()->index();
@@ -29,6 +29,6 @@ class CreateBooksAuthorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('books_authors');
+        Schema::dropIfExists('authors_books');
     }
 }
